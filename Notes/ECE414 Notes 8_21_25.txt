@@ -1,0 +1,100 @@
+Reinforcement learning basics
+-All about sequential decision making
+
+RL tasks
+-How can an autonomous agent that senses and acts in its environment learn to choose optimal actions sequentially to maximize its cumulative reward
+
+Brief history
+Three threads joined in the '80s forming the modern RL
+-animal learning (psychology)
+-optimal control (Engineering)
+-artificial intelligence (CS)
+
+
+Before Deep learning
+-1959 - first successful checkers-playing program by Samuel
+-1970's - machine intelligence based on animal learning by klopf
+-1980's - temporal-difference learning
+-1980's-1990's - approximate dynamic programming (via Neural Networks)
+-1992: TD-GAMMON by Tesauro (worlds best backgammon player)
+-1980's-2012: winter of RL 
+
+Deep Learning Era
+• 2015: Atari games (superhuman on some games)
+• 2017: AlphaZero (superhuman on Go and Chess)
+• 2019: OpenAI Five (superhuman on Dota 2)
+• 2019: AlphaStar (grandmaster on StarCraft II)
+• 2019: Rubik’s cube (real robot)
+• 2020: Hide and Seek (multi-agent system)
+• 2021: Atari games using Go-Explore (superhuman on all games)
+• 2021: Chip floor planning (superhuman)
+• 2022: Gran Turismo 7 (superhuman)
+
+Go: A game of surrounding and controlling areas
+- Goal: control more territory than your opponent
+- Grand AI challenge for decades
+- Deep Blue (IBM) defeats world chess champion in 1997
+- AlphaGo (DeepMind) defeats Go world champion in 2016
+
+What made the difference
+- Increased computing power + deep neural networks + new algorithms + engineering practices
+- Not much advanced on theory
+- Bellman: far more ability and sophistication is required to obtain a numerical solution than to establish the usual existence and uniqueness theorems
+
+Key Concepts of RL
+
+Agent
+- Can sense the environment and choose actions to perform
+- Common examples: robot, vehicle, software agent, etc.
+
+Action
+- decisions available to the agent
+- Action will affect the environment
+- Action may have long-term consequences
+
+Environment
+- The world that the agent lives in and operates
+
+State
+- Snapshot of the status of the environment
+- Contains all relevant information for agent decision-making
+
+Reward
+- Immediate payoff from the environment to each action of the agent
+- Reward is expressed as a single number (scalar)
+
+
+Key Concept Revisited
+
+Agent
+- Only the decision-making process
+- Anything beyond agent's complete control (thus subject to environment's manipulation) is part of the environment
+
+Action
+- Discrete vs. Continuous : If the actions can be enumerated, the action space is discrete; otherwise, the action space is continuous
+
+Environment
+- Single-agent vs Multi-agent
+	- How many agents are being optimized
+	- Multi-agent: cooperative vs. competitive
+- Fully observable vs. Partially observable
+	- Whether agent can sense the complete state of the environment 
+- Deterministic vs. Nondeterministic
+	- If the next state is completely determined by the current state and the action of the agent, the environment is deterministic.
+- Static vs Dynamic
+	- If the environment doesn't change during an agent's decision-making, it's static; otherwise it's dynamic
+
+State
+- Recall: state contains all relevant information for decision-making
+- State (exact information) can be missing or unknown
+- Agent usually obtains observations of the environment via sensors
+- Observations can be distorted cue to sensor or processing errors
+- Designing what to observe (if you can) to enable an RL task can be challenging
+
+Reward
+- Recall: reward is the immediate payoff from the environment to each action of the agent
+- The immediate payoff can be no reward or even penalty
+- The actual rewards are often sparse and delayed
+- Thus, the meaning of "reward" needs to be interpreted in context
+- Reward design can be challenging 
+
