@@ -1,0 +1,57 @@
+ECE414 Notes 8_26_2025
+
+RL Agent
+- RL Task: how can an agent that senses and acts in its 
+ environment learn to choose optimal actions sequentially
+ to maximize its cumulative reward
+- Goal of RL Agent:
+    - Perform sequences of actions
+    - Observe their rewards
+    - learn an optimal policy
+
+Components of RL Agent: policy
+- A mapping of states (observations) of the environment
+ to agent actions
+- Deterministic: pi(s) = a 
+- Stochastic: pi(a|s) = P[a=a|s=s]
+
+Components of RL Agent: Value Function
+- Value function
+    — Estimated cumulative reward starting from a state or 
+     a state-action pair
+- Example of State Value Function V(s)
+    — State 1: having MS in CS
+    — State 2: not having MS in CS
+    — V(State 1): estimated total income xx years after having MS in CS
+    — V(State 2): estimated total income xx years after not having MS in CS
+    — Note: in theory, xx = infinite
+
+Components of RL Agent: Model
+- Agent's knowledge about rules, dynamic, and outcomes
+ of its actions
+- Model is optimal for RL agent 
+- Modeling-Free learning: agent learns without knowing the
+ the effects of its actions 
+
+Types of RL Agent (Classes of RL Algorithms)
+- Model-Free vs Model-Based 
+- Value-Based vs Policy-Based 
+- Actor Critic: hybrid of value-based and policy-based methods
+
+Supervided Learning (SL): Recognition Problem
+- Task: relies on accurate labels provided by the supervisor
+- Assumption: independent, indentially distributed(i.i.d.) data
+- Challenge: obtain accurately labelled data
+
+Reinforcement Learning (RL): Decision Problem
+- Task: learns via trial and error, no Supervisor, only 
+ (spares and delayed) rewards
+- Assumption: non-i.i.d. data, action order matters
+- Challenge: design of action, observation, reward 
+
+Summary of Class (8/21-26/2025)
+- What is RL: Tool for sequential decision making 
+- Brief history of RL 
+- Key Concepts of RL: Agent, Action, Environment, State, Reward \
+- Concepts of RL Agent: Policy, Value Function, Model 
+- RL vs SL: Decision task vs recognition task
