@@ -1,0 +1,125 @@
+ECE414 Notes 9_2_2025
+
+Class Content
+- What are Bandits
+- Milti-armed Bandits
+- Methods for Solving Bandits
+- From Bandits to Full RL
+
+What Are Bandits 
+
+Why study Bandits
+- Represent simplified RL tasks
+- Embed core concepts of RL, E.G., exploration vs exploitation
+- Employ learning methods that can be extended to solve full RL tasks
+- Have a wide range of real-world applications
+
+Example Badit Problem
+- You have $100 to spend on 4 slot machines, each run takes $1
+- Each machine will yield a binary outcomes
+    - outcome 1: fixed-value reward (initially unknown)
+    - outcome 2: nothing
+- What is your strategy to maximize the cumulative reward?
+
+
+Example Badit Problem
+- You have $100 to spend on 4 slot machines, each run takes $5
+- Each machine will yield a binary outcomes
+    - outcome 1: fixed-value reward (initially unknown)
+    - outcome 2: nothing
+- What is your strategy to maximize the cumulative reward?
+
+
+Example Badit Problem
+- You have $100 to spend on 4 slot machines, each run takes $5
+- Each machine will yield a binary outcomes
+    - outcome 1: dynamic reward (initially unknown)
+    - outcome 2: nothing
+- What is your strategy to maximize the cumulative reward?
+
+
+Multi-armed Bandits
+
+Multi-armed Bandits
+- Repeatedly choose among k different actions (machines)
+- After each action, a numerical reward is provided
+- Actions have no further influence
+- goal: maximize the cumulative reward
+
+Multi-armed Bandits vs. Full RL
+- Action
+    - Bandits: have no further influence
+    - Full RL: may have long-term consequences
+- Environment
+    - Bandits: simple 
+    - Full RL: complex
+- State
+    - Bandits: single state of stateless
+    - Full RL: changing states 
+
+Exploration vs exploitation
+- Exploitation: act greedily to an "optimal" action (short-term benefit)
+- Exploration: choose a new action (potential long-term benefit)
+- The exploration-exploitation trade-off is fundamental to RL
+
+Methods for Solving Bandits
+
+Action-value Method
+- Action value: reward probability of an action x reward value 
+- Estimate action values by averaging the recieved rewards
+- Choose an action according to either greedy or ε-greedy strategy
+- Solution is approximated due to limited time steps
+
+ε-greedy Strategy
+- A go-to exploration strategy of RL 
+- Can perform well but is task-dependent
+
+Incremental Method 
+- Instead of averaging action values in the end, compute action value incrementally
+- Choose an action according to either greedy or ε-greedy strategy
+
+Factors of Bandits 
+- Estimates of action values
+- Number of available actions (steps)
+- System uncertainties
+    - Stationary: reward probabilities don't change 
+    - Non-stationary: reward probabilities change over time
+
+Incremental Method for Non-stationary Bandits 
+- Reward probabilities change over time: need to give more weight to recent rewards
+    than past rewards
+- Use a constant (or dynamic) step-size parameter (α)
+
+From Bandits to Full RL
+
+Return
+- The cumulative discounted reward starting from a specific timestep (γ is 
+    discount factor)
+- In Bandits, usually γ = 1 (undiscounted case)
+
+State Value Function
+- Estimated cumulative reward starting from a state
+- Example of State Value Function V(s)
+    - State 1: having MS in CS 
+    - State 2: not having MS in CS
+    - V(State 1): estimate total income xx years after having MS in CS
+    - V(State 2): estimated total income xx years after not having MS in CS
+    - Note: in theory, xx = infinite
+- Formally: the expected return of a state 
+
+Bandits -> Full RL
+- Action-value Method -> Monte Carlo Learning
+- Incremental Method -> Temporal-difference Learning
+    - Sutton and Barto: one central and novel idea to RL
+    - core idea: NewEstimate <- OldEstimate + StepSize [Target - OldEstimate]
+    - E.g., V(s) <- V(s) + α[Return - V(s)]
+
+Summary of Class
+- What are Bandits
+    - Simplified RL tasks: actions have no long-term influences, stateless
+- Multi-armed Bandits
+    - "Optimal" actions, exploration vs. exploitation
+- Methods for Solving Bandits
+    - Action-value method, ε-greedy strategy, incremental method
+- From Bandits to Full RL 
+    - Return, State Value Function, TD Learning 
