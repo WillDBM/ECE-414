@@ -1,0 +1,93 @@
+ECE414 Notes 9_9_2025
+
+Markov Process
+
+Markov Property
+- Markov Property
+    - Current state completely characterizes all information from history
+- Markov state
+    - The future is independent of the past given the present, e.g.,
+        continuing a game of Go by a previous player
+    - Sufficient statistics of the future
+
+Markov Process
+- Markov process is a memoryless random process
+- Markov process consists of a sequence of Markov states S1, S2, ...
+- Markov process (or Markov chain) is a tuple <S,P>
+    - S: a finite set of states
+    - P: state of transistion matrix
+
+State Transition matrix
+- Transition probability from a state s to its successor state s'
+
+- State transition matrix P defines transition probabilities between all
+    states (each row sums to 1)
+
+Trajectory and Episode
+- Assumption: all trajectories / episodes are finite; and they end at the terminal state (sleep)
+
+Markov Reward Process
+
+Markov Reward Process 
+- Markov reward process is a Markov process with rewards <S,P,R,γ>
+    - S: a finite set of states 
+    - P: state transition matrix
+    - R: reward function
+    - γ: discount factor γ ∈ [0,1]
+
+Discount Factor
+- Most MRPs (and MDPs) are discounted
+- Model uncertainty about the future, e.g., non-stationary environment
+- Animals, as well as many real-world applications, favor immediate rewards
+- Mathematical convenience: to achieve convergence
+
+Return
+- The cumulative discounted reward starting from a specific timestep
+
+State Value function
+- State value function in an MRP is the expected return starting from a state
+
+- V(s) can be decomposed into two parts:
+    - Immediate reward Rt 
+    - Discounted value of successor state
+
+Solving Bellman Expectation Equations
+- Bellman expectation equation is linear and can be solved using either
+    a direct method or iterative method 
+- Direct method (i.e., normal equation) has O(n^3) complexity thus only
+    works for small MRPs
+- Iterative methods 
+    - Dynamic Programming
+    - Monte-Carlo Learning
+    - Temporal-difference learning
+
+Markov Decision Process
+
+Markov Decision Process 
+- MDP is a Markov reward process ith actions <S,A,P,R,γ>
+    - S: a finite set of states 
+    - A: a finite set of actions
+    - P: state transition matrix
+    - R: reward function
+    - γ: discount factor γ ∈ [0,1]
+- Model 
+    - "Rules and dynamics of the enviornment" (outcomes of actions)
+    - Model = P and R in MDPs
+
+- Almost all RL problems can be formulated as MDPs 
+    - bandits - MDPs with one state or no state 
+    -  partially observable problems -> POMDPs
+    - optimal control -> continuous MDPs
+- We focus on finite MDPs (states, actions, and rewards are finite)
+
+Policy
+- A mapping from states (observations) to actions 
+- Deterministic: pi(s) = a 
+- Stochastic: pi(a|s) = P[at = at|st = s]
+
+Value Functions
+- State value function of an MDP is the expected return starting from 
+    a state and following a policy (mapping from states to actions)
+- Action value function of an MDP is the expected return starting from
+    a state, taking a specific action, and following a policy.
+
