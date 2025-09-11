@@ -1,0 +1,66 @@
+ECE414 Notes 9_11_2025
+
+Partially Observable Markov Decision Process
+- POMDP is represented as <S,A,P,R,Z,O,γ>
+    - S: a finite set of states 
+    - A: a finite set of actions
+    - P: state transition matrix
+    - R: reward function
+    - Z: a finite set of observations
+    - O: observation function, a finite set of conditional observation probabilities
+        - O(z|s): the probability of observing z in state s 
+    - γ: discount factor γ ∈ [0,1]
+- Model
+    - Model = P,R, and O in POMDPs
+
+- POMDP <S,A,P,R,Z,O,γ> is a common formulation of RL tasks
+- S is ussually replaced by Z 
+- POMDP usually poses no additional challenges for RL algorithms
+    - RL is about model-free learning: P,R, and O are unknown
+
+Dynamic Programming
+
+Problems in Sequential Decision Making
+- Reinforcement Learning: agent improves its policy by interacting with an initial
+    unknown enviornment.
+    - Model-free learning: agent doesn't infer the model of the environment during learning
+    - Model-based learning: agent infers the model of the enviornment and 
+        uses the inferred model during learning.
+
+- Planning: agent improves its policy by computing with its internal model of the 
+    enviornment (model-based)
+
+Dynamic Programming
+- Dynamic Programming (DP) assumes full knowledge of the MDP (including the model,
+    i.e., transition function and reward function) and is used for planning in the MDP
+- DP's focus is to solve MDP using the least computational effort
+
+- DP is a general method for problems that have two properties
+    - 1) optimal substructure: optimal solution can be decomposed for subproblems
+    - 2) Overlapping subproblems: subproblems recur many times and their solutions
+        can be reused
+- DP solves a problem by breaking it down into subproblems
+    - solve the subproblems
+    - combine solution to subproblems
+- Example problem: finding the shortest path between A and B
+
+MDP and Optimal Policy
+
+- MDPs have both properties reuired by DP:
+    - Bellman equation gives recursive decomposition
+    - Valie function stores solution for reuse 
+- An optimal policy can be subdivided into two components:
+    - An optimal first action A*
+    - Followed by an optimal policy from successor state S'
+
+Prediction and control
+- Prediction: evaluate a given policy (evaluate the future)
+    - e.g., what is the value function for the uniform random policy?
+    - Input: MDP and policy pi 
+    - Output: value function V pi
+- Control: find the best policy (optimize the future)
+    - what is the optimal value function over all possible policies (
+        hense the optimal policy)?
+    - Input MDP
+    - Output: optimal value function V* and optimal policy pi*
+
